@@ -1,0 +1,14 @@
+
+.post-list{
+    width: 100%;
+    padding: 10%;
+    background: #000;
+    
+}
+.images_post{
+    border: 1px solid #7c7c7c;
+}
+.post_item{
+    padding: 20px;
+    
+}

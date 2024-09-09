@@ -1,29 +1,18 @@
-package org.ninhngoctuan.backend.entity;
+package org.ninhngoctuan.backend.dto;
 
-import jakarta.persistence.*;
 import java.util.Date;
 
-@Entity
-@Table(name = "Posts")
-public class PostEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class PostDTO {
     private Long postId;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
-    private UserEntity user;
+    private UserDTO user;
 
-    @Column(columnDefinition = "TEXT")
     private String content;
 
-    @Column(name = "image_url")
     private String imageUrl;
 
-    @Column(name = "created_at", nullable = false, updatable = false)
     private Date createdAt;
 
-    @Column(name = "updated_at")
     private Date updatedAt;
 
     public Long getPostId() {
@@ -34,11 +23,11 @@ public class PostEntity {
         this.postId = postId;
     }
 
-    public UserEntity getUser() {
+    public UserDTO getUser() {
         return user;
     }
 
-    public void setUser(UserEntity user) {
+    public void setUser(UserDTO user) {
         this.user = user;
     }
 

@@ -1,40 +1,27 @@
-package org.ninhngoctuan.backend.entity;
+package org.ninhngoctuan.backend.dto;
 
 import jakarta.persistence.*;
-import java.util.Date;
-import java.util.Set;
 
-@Entity
-@Table(name = "Users")
-public class UserEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+import java.util.Date;
+
+public class UserDTO {
     private Long userId;
 
-    @Column(nullable = false, unique = true, length = 50)
     private String fullName;
 
-    @Column(nullable = false, unique = true, length = 12)
     private String phone;
 
-    @Column(nullable = false, length = 255)
     private String password;
 
-    @Column(nullable = false, unique = true, length = 100)
     private String email;
 
-    @Column(name = "profile_picture")
     private String profilePicture;
 
-    @Column(name = "created_at", nullable = false, updatable = false)
     private Date createdAt;
 
-    @Column(name = "updated_at")
     private Date updatedAt;
 
-    @ManyToOne
-    @JoinColumn(name = "roleId")
-    private RoleEntity roleId;
+    private RoleDTO roleId;
 
     private boolean isActive;
     private boolean isEmailActive;
@@ -103,11 +90,11 @@ public class UserEntity {
         this.updatedAt = updatedAt;
     }
 
-    public RoleEntity getRoleId() {
+    public RoleDTO getRoleId() {
         return roleId;
     }
 
-    public void setRoleId(RoleEntity roleId) {
+    public void setRoleId(RoleDTO roleId) {
         this.roleId = roleId;
     }
 
